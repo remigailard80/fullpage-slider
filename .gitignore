@@ -25,3 +25,7 @@ yarn-error.log*
 # env
 
 .envrc
+
+# build
+
+lib
