@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+## react-slide-sections
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![react-slide-sections](https://user-images.githubusercontent.com/55088346/188320539-88505770-366f-4b8c-961c-8355178ca4b7.gif)
 
-## Available Scripts
+한 페이지씩 스크롤로 넘기고 싶어서 만든, `fullPage.js`랑 비슷한 패키지입니다. 참고로 `fullPage.js`는 유료여서 직접 만들었습니다.
 
-In the project directory, you can run:
+또한, 이왕 만드는거 패키지로 인스톨해서 사용할 수 있게 했습니다.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### yarn
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+yarn add react-slide-sections
+```
 
-### `npm test`
+###  npm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm i reatc-slide-sections
+```
 
-### `npm run build`
+## Example
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/remigailard80/fullpage-slider
+yarn install
+yarn start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+시 Example Project를 구동할 수 있습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Or
 
-### `npm run eject`
+```
+import React from "react";
+import { SectionRoot } from "react-slide-sections";
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+function App() {
+  return (
+    <SectionRoot>
+      <div style={{ backgroundColor: "red", height: "100%" }}> Paper1 </div>
+      <div style={{ backgroundColor: "blue", height: "100%" }}> Paper2 </div>
+      <div style={{ backgroundColor: "green", height: "100%" }}> Paper3 </div>
+    </SectionRoot>
+  );
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## TODO
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. `useImperativeHandle` 이용해서 activeIdx를 외부에서 직접 조작할 수 있게 할 예정입니다.
