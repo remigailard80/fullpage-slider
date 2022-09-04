@@ -43,8 +43,5 @@
   },
   "workspaces": [
     "react-slide-sections"
-  ],
-  "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.18.10"
-  }
+  ]
 }
