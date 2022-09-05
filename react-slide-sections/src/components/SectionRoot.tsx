@@ -117,14 +117,7 @@ export const SectionRoot: React.FC<SectionRootProps> = ({ children }) => {
     >
       {React.Children.map(children, (child, idx) => {
         return (
-          <section
-            className={SectionRootItemWrapperStyle}
-            style={{
-              zIndex: 100 - idx,
-            }}
-          >
-            {child}
-          </section>
+          <section className={SectionRootItemWrapperStyle}>{child}</section>
         );
       })}
     </main>
