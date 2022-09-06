@@ -9,6 +9,7 @@ import { reverseArrayIndex } from "../utils/Array";
 
 interface SectionRootProps {
   threshold?: number;
+  loopingScroll?: boolean;
   children: React.ReactNode[];
 }
 
@@ -16,6 +17,7 @@ let scrollThrottle;
 
 export const SectionRoot: React.FC<SectionRootProps> = ({
   threshold,
+  loopingScroll = false,
   children,
 }) => {
   const scrollThreshold = threshold || 0;
@@ -43,12 +45,22 @@ export const SectionRoot: React.FC<SectionRootProps> = ({
 
       if (isScrollUp) {
         handleScrollThrottle(1000);
-        setActiveIdx((prev) => prev + 1);
+        setActiveIdx((prev) => {
+          if (!loopingScroll) {
+            return prev < children.length - 1 ? prev + 1 : prev;
+          }
+          return prev + 1;
+        });
         return;
       }
       if (isScrollDown) {
         handleScrollThrottle(1000);
-        setActiveIdx((prev) => prev - 1);
+        setActiveIdx((prev) => {
+          if (!loopingScroll) {
+            return prev > 0 ? prev - 1 : 0;
+          }
+          return prev - 1;
+        });
         return;
       }
     },
@@ -59,8 +71,6 @@ export const SectionRoot: React.FC<SectionRootProps> = ({
     window.addEventListener("wheel", handleWheelEvent);
     return () => window.removeEventListener("wheel", handleWheelEvent);
   }, [handleWheelEvent]);
-
-  console.log(activeIdx);
 
   return (
     <main className={SectionRootStyle}>
