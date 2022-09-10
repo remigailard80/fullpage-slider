@@ -1,3 +1,1 @@
-import SectionRoot from "./components/SectionRoot";
-
-export { SectionRoot };
+export { SectionRoot } from "./components/SectionRoot";

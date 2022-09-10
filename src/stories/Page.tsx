@@ -1,73 +1,87 @@
-import React from 'react';
+import React from "react";
+import { styled } from "@stitches/react";
+import { SectionRoot } from "react-slide-sections";
 
-import { Header } from './Header';
-import './page.css';
+import type { SectionRootProps } from "react-slide-sections/lib/src/components/SectionRoot";
 
-type User = {
-  name: string;
-};
-
-export const Page: React.VFC = () => {
-  const [user, setUser] = React.useState<User>();
-
+export const Page: React.FC<SectionRootProps> = (props) => {
   return (
-    <article>
-      <Header
-        user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
-      />
+    <SectionRoot threshold={20} {...props}>
+      <SectionContainer>
+        <h2> What is Lorem Ipsum? </h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
+      </SectionContainer>
+      <SectionContainer>
+        <h2> Why do we use it? </h2>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </p>
+      </SectionContainer>
 
-      <section>
-        <h2>Pages in Storybook</h2>
+      <SectionContainer>
+        <h2> Where does it come from?</h2>
         <p>
-          We recommend building UIs with a{' '}
-          <a href="https://componentdriven.org" target="_blank" rel="noopener noreferrer">
-            <strong>component-driven</strong>
-          </a>{' '}
-          process starting with atomic components and ending with pages.
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
+          1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+          Evil) by Cicero, written in 45 BC. This book is a treatise on the
+          theory of ethics, very popular during the Renaissance. The first line
+          of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+          section 1.10.32. The standard chunk of Lorem Ipsum used since the
+          1500s is reproduced below for those interested. Sections 1.10.32 and
+          1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+          reproduced in their exact original form, accompanied by English
+          versions from the 1914 translation by H. Rackham.
         </p>
+      </SectionContainer>
+
+      <SectionContainer>
+        <h2> Where can I get some? </h2>
         <p>
-          Render pages with mock data. This makes it easy to build and review page states without
-          needing to navigate to them in your app. Here are some handy patterns for managing page
-          data in Storybook:
+          There are many variations of passages of Lorem Ipsum available, but
+          the majority have suffered alteration in some form, by injected
+          humour, or randomised words which don't look even slightly believable.
+          If you are going to use a passage of Lorem Ipsum, you need to be sure
+          there isn't anything embarrassing hidden in the middle of text. All
+          the Lorem Ipsum generators on the Internet tend to repeat predefined
+          chunks as necessary, making this the first true generator on the
+          Internet. It uses a dictionary of over 200 Latin words, combined with
+          a handful of model sentence structures, to generate Lorem Ipsum which
+          looks reasonable. The generated Lorem Ipsum is therefore always free
+          from repetition, injected humour, or non-characteristic words etc.
         </p>
-        <ul>
-          <li>
-            Use a higher-level connected component. Storybook helps you compose such data from the
-            "args" of child component stories
-          </li>
-          <li>
-            Assemble data in the page component from your services. You can mock these services out
-            using Storybook.
-          </li>
-        </ul>
-        <p>
-          Get a guided tutorial on component-driven development at{' '}
-          <a href="https://storybook.js.org/tutorials/" target="_blank" rel="noopener noreferrer">
-            Storybook tutorials
-          </a>
-          . Read more in the{' '}
-          <a href="https://storybook.js.org/docs" target="_blank" rel="noopener noreferrer">
-            docs
-          </a>
-          .
-        </p>
-        <div className="tip-wrapper">
-          <span className="tip">Tip</span> Adjust the width of the canvas with the{' '}
-          <svg width="10" height="10" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fillRule="evenodd">
-              <path
-                d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-                id="a"
-                fill="#999"
-              />
-            </g>
-          </svg>
-          Viewports addon in the toolbar
-        </div>
-      </section>
-    </article>
+      </SectionContainer>
+    </SectionRoot>
   );
 };
+
+const SectionContainer = styled("section", {
+  backgroundColor: "#FFF",
+  height: "100%",
+  "& h2": {
+    margin: 0,
+  },
+});

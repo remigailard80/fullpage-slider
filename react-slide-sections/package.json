@@ -3,11 +3,11 @@
   "packageManager": "yarn@3.2.3",
   "main": "./lib/index.cjs",
   "module": "./lib/index.mjs",
-  "types": "./lib/@types/src/index.d.ts",
+  "types": "./lib/src/index.d.ts",
   "license": "MIT",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "scripts": {
-    "build": "tsc --emitDeclarationOnly && rollup -c"
+    "build": "rollup -c && tsc --emitDeclarationOnly"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
