@@ -15,12 +15,12 @@ export const settings = {
     {
       file: "./lib/index.cjs",
       format: "cjs",
-      sourcemap: true,
+      sourcemap: false,
     },
     {
       file: "./lib/index.mjs",
       format: "esm",
-      sourcemap: true,
+      sourcemap: false,
     },
   ],
   plugins: [
@@ -35,7 +35,7 @@ export const settings = {
     commonjs({
       include: /node_modules/,
     }),
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({ declaration: false, useTsconfigDeclarationDir: false }),
   ],
   external,
 };

@@ -7,11 +7,11 @@ import {
 } from "./SectionRoot.css";
 import { reverseArrayIndex } from "../utils/Array";
 
-interface SectionRootProps {
+export type SectionRootProps = {
   threshold?: number;
   loopingScroll?: boolean;
   children: React.ReactNode[];
-}
+};
 
 let scrollThrottle;
 
@@ -19,7 +19,7 @@ export const SectionRoot: React.FC<SectionRootProps> = ({
   threshold,
   loopingScroll = false,
   children,
-}) => {
+}: SectionRootProps) => {
   const scrollThreshold = threshold || 0;
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const activeIndexes = useMemo(
@@ -64,7 +64,7 @@ export const SectionRoot: React.FC<SectionRootProps> = ({
         return;
       }
     },
-    [scrollThreshold]
+    [scrollThreshold, loopingScroll, children]
   );
 
   useEffect(() => {
@@ -93,5 +93,3 @@ export const SectionRoot: React.FC<SectionRootProps> = ({
     </main>
   );
 };
-
-export default SectionRoot;
